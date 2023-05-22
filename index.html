@@ -54,7 +54,26 @@
         }
 
         function game() {
-            
+            let playerScore = 0;
+            let computerScore = 0;
+            for (let i = 0; i < 5; i++) {
+                let winner = playRound();
+                if (winner === "PLAYER") {
+                    playerScore++;
+                }
+                else if (winner === "COMPUTER") {
+                    computerScore++;
+                }
+            }
+            if (playerScore === computerScore) {
+                console.log("IT'S A TIE!");
+            }
+            else if (playerScore > computerScore) {
+                console.log("YOU WIN!");
+            }
+            else {
+                console.log("THE COMPUTER WINS! :(");
+            }
         }
     </script>
 </body>
