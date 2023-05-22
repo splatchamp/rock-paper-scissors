@@ -15,7 +15,42 @@
         }
 
         function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toUpperCase();
+            computerSelection = computerSelection.toUpperCase();
             
+            if (playerSelection === "ROCK") {
+                if (computerSelection === "ROCK") {
+                    return "TIE";
+                }
+                else if (computerSelection === "PAPER") {
+                    return "COMPUTER";
+                }
+                else {
+                    return "PLAYER";
+                }
+            }
+            else if (playerSelection === "PAPER") {
+                if (computerSelection === "PAPER") {
+                    return "TIE";
+                }
+                else if (computerSelection === "ROCK") {
+                    return "PLAYER";
+                }
+                else {
+                    return "COMPUTER";
+                }
+            }
+            else {
+                if (computerSelection === "SCISSORS") {
+                    return "TIE";
+                }
+                else if (computerSelection === "PAPER") {
+                    return "PLAYER";
+                }
+                else {
+                    return "COMPUTER";
+                }
+            }
         }
 
         function game() {
