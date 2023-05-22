@@ -10,13 +10,18 @@
     <script>
         function getComputerChoice() {
             let choicesArr = ["Rock", "Paper", "Scissors"];
-            let choice = choicesArr[Math.floor(Math.random() * choicesArr.length)];
-            return choice;
+            let computerSelection = choicesArr[Math.floor(Math.random() * choicesArr.length)];
+            return computerSelection;
         }
 
-        function playRound(playerSelection, computerSelection) {
-            playerSelection = playerSelection.toUpperCase();
-            computerSelection = computerSelection.toUpperCase();
+        function getPlayerChoice() {
+            let playerSelection = prompt("Make your selection: ROCK, PAPER, SCISSORS")
+            return playerSelection
+        }
+
+        function playRound() {
+            let playerSelection = getPlayerChoice().toUpperCase();
+            let computerSelection = getComputerChoice().toUpperCase();
             
             if (playerSelection === "ROCK") {
                 if (computerSelection === "ROCK") {
@@ -60,21 +65,29 @@
                 let winner = playRound();
                 if (winner === "PLAYER") {
                     playerScore++;
+                    alert(`YOU GOT IT! You win this battle, but not the war!\nYOU: ${playerScore} COMPUTER: ${computerScore}`);
                 }
                 else if (winner === "COMPUTER") {
                     computerScore++;
+                    alert(`YOU LOST IT! Computer wins this battle, but not the war!
+                    \nYOU: ${playerScore} COMPUTER: ${computerScore}`);
+                }
+                else { 
+                    alert("IT'S A TIE FOR NOW!");
                 }
             }
             if (playerScore === computerScore) {
-                console.log("IT'S A TIE!");
+                alert("IT'S A TIE!");
             }
             else if (playerScore > computerScore) {
-                console.log("YOU WIN!");
+                alert("YOU WIN!");
             }
             else {
-                console.log("THE COMPUTER WINS! :(");
+                alert("THE COMPUTER WINS! :(");
             }
         }
+
+        game();
     </script>
 </body>
 </html>
